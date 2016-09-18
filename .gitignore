@@ -1,0 +1,11 @@
+.DS_Store
+node_modules
+npm-debug.log
+dist
+env/serverDev.env
+env/serverProd.env
+clientDev.js
+clientProd.js
+typings
+build
+.vscode
