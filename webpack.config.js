@@ -3,8 +3,8 @@ var webpack = require('webpack');
 
 module.exports = {
   entry: [
-    'webpack-hot-middleware/client',
     'react-hot-loader/patch',
+    'webpack-hot-middleware/client', // add ?quiet=true to remove warnings
     './index.tsx'
   ],
   output: {
@@ -13,6 +13,7 @@ module.exports = {
     publicPath: ''
   },
   plugins: [
+    new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin()
   ],

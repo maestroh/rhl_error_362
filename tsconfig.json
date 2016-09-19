@@ -2,13 +2,14 @@
   "compilerOptions": {
     "outDir": "./build",
     "sourceMap": true,
-    "noImplicitAny": true,
     "module": "commonjs",
     "target": "es5",
     "jsx": "react"
   },
   "files": [
-        "typings/index.d.ts"
+        "typings/index.d.ts",
+        "react-hot-loader.d.ts",
+        "webpack-env.d.ts"
     ],
   "filesGlob": [
     "**/*.ts",
