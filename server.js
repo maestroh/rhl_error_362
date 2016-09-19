@@ -1,21 +1,16 @@
 const express = require('express');
 const config = require('./webpack.config');
 const webpack = require('webpack');
-const webpackDevMiddleware = require('webpack-dev-middleware');
 const webpackHotMiddleware = require('webpack-hot-middleware');
 const path = require('path');
 
 var app = express();
 const compiler = webpack(config);
 
-app.use(webpackDevMiddleware(
-    compiler, {
-        hot: true,
-        stats: {
-            colors: true
-        }
-    }
-));
+app.use(require('webpack-dev-middleware')(compiler, {
+  noInfo: true,
+  publicPath: config.output.publicPath
+}));
 app.use(webpackHotMiddleware(compiler));
 
 app.get('/', (req, res) => {
